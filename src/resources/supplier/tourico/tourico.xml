@@ -1,0 +1,24 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dat="http://touricoholidays.com/WSDestinations/2008/08/DataContracts">
+   <soapenv:Header>
+      <dat:LoginHeader>
+         <dat:username>UBtour15</dat:username>
+         <dat:password>UBT@th2015</dat:password>
+         <dat:culture>en_US</dat:culture>
+         <dat:version>7.123</dat:version>
+      </dat:LoginHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <dat:GetDestination>
+         <dat:Destination>
+            <dat:Continent></dat:Continent>
+            <dat:Country></dat:Country>
+            <dat:State></dat:State>
+            <dat:City></dat:City>
+            <dat:Providers>
+               <dat:ProviderType>Default</dat:ProviderType>
+            </dat:Providers>
+            <!--<dat:StatusDate>2008-12-17T00:00:00</dat:StatusDate> -->
+         </dat:Destination>
+      </dat:GetDestination>
+   </soapenv:Body>
+</soapenv:Envelope>
