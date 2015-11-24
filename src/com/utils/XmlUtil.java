@@ -1,5 +1,6 @@
 package com.utils;
 
+import java.io.StringReader;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,6 +21,17 @@ public class XmlUtil {
 		return hmElements;
 	}
 
+	public static HashMap<String, Object> xmlSoapParse(StringReader xmlFile, String keyName) throws Exception {
+		SAXReader reader = new SAXReader();
+		Document document = reader.read(xmlFile);
+		Element rootElement = document.getRootElement();
+		HashMap<String, Object> hmElements = new HashMap<String, Object>();
+		if (rootElement.elements().size() > 0) {
+			hmElements = xmlElement(rootElement, keyName);
+		}
+		return hmElements;
+	}
+	
 	protected static HashMap<String, Object> xmlElement(Element element, String keyName) {
 		List<Element> elements = element.elements();
 		int elements_size = elements.size();

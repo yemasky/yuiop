@@ -1,5 +1,8 @@
 package com.api.tour.supplier;
 
+import java.io.StringReader;
+import java.util.HashMap;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,10 +21,10 @@ public class TouricoApi {
 		//logger.info(cg.filePath() + fileName);
 		// System.exit(0);
 		if (fo.fileExists(cg.filePath() + fileName)) {
-			//xmlGetDestination = fo.readTxt(cg.filePath() + fileName, "utf-8");
-			TouricoXmlUtil.xmlParse(cg.filePath() + fileName);
+			xmlGetDestination = fo.readTxt(cg.filePath() + fileName, "utf-8");
+			//TouricoXmlUtil.xmlSoapParse(cg.filePath() + fileName, "name");
 		}
-		System.exit(0);
+		//System.exit(0);
 		//System.out.println("xmlGetDestination:" + xmlGetDestination);
 		if(xmlGetDestination.trim().isEmpty()) {
 			SoapHttpClient shc = new SoapHttpClient();
@@ -30,7 +33,9 @@ public class TouricoApi {
 					cg.getDestinationHeader);
 			fo.createFile(cg.filePath(), fileName, xmlGetDestination);
 		}
-		logger.info(xmlGetDestination);
+		HashMap<String, Object> hmXmlparse = new HashMap<String, Object>();
+		hmXmlparse = TouricoXmlUtil.xmlSoapParse(new StringReader(xmlGetDestination), "name");
+		logger.info(hmXmlparse);
 	}
 
 	public static void main(String[] args) throws Exception {

@@ -16,6 +16,9 @@ public class DBQuery {
 	public String table_name = "";
 	private String insert_prefix = "insert";
 	private String[][] sql_where = null;
+	private String sql_limit = null;
+	private String sql_order = null;
+	private String sql_group = null;
 	private String sql_mɑrk = "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,";
 	private Connection db_dsn_conn;
 	private static HashMap<String, DBQuery> db_instance = new HashMap<String, DBQuery>();
@@ -24,7 +27,8 @@ public class DBQuery {
 	public DBQuery(String sDsn) throws SQLException, IOException, Exception {
 		dsn = sDsn;
 		Class.forName("com.mysql.jdbc.Driver");
-		this.db_dsn_conn = DriverManager.getConnection(new ConfigUtil().getProperties("properties/jdbc.properties", dsn, null));
+		this.db_dsn_conn = DriverManager
+				.getConnection(new ConfigUtil().getProperties("properties/jdbc.properties", dsn, null));
 	}
 
 	public static DBQuery instance() throws Exception {
@@ -59,6 +63,21 @@ public class DBQuery {
 		return instance(dsn);
 	}
 
+	public DBQuery setSql_limit(String sqlLimit) throws Exception {
+		this.sql_limit = "LIMIT " + sqlLimit;
+		return instance(dsn);
+	}
+
+	public DBQuery setSql_order(String sqlOrder) throws Exception {
+		this.sql_order = "ORDER BY " + sqlOrder;
+		return instance(dsn);
+	}
+
+	public DBQuery setSql_group(String sqlGroup) throws Exception {
+		this.sql_group = "GROUP BY " + sqlGroup;
+		return instance(dsn);
+	}
+
 	public int getCount(String field) throws Exception {
 		String sql = "SELECT COUNT(" + field + ") FROM " + this.table_name;
 		PreparedStatement psStatement = db_dsn_conn.prepareStatement(sql);
@@ -76,6 +95,15 @@ public class DBQuery {
 					sql.append(" AND " + this.sql_where[0][j] + " = ? ");
 				}
 			}
+		}
+		if (this.sql_group != null) {
+			sql.append(this.sql_group);
+		}
+		if (this.sql_order != null) {
+			sql.append(this.sql_order);
+		}
+		if (this.sql_limit != null) {
+			sql.append(this.sql_limit);
 		}
 		PreparedStatement PStatement = db_dsn_conn.prepareStatement(sql.toString());
 		if (this.sql_where != null) {
@@ -110,7 +138,8 @@ public class DBQuery {
 
 	// 插入
 	public DBQuery insert(String fleid, String[][] RowValue) throws Exception {
-		String sql = this.insert_prefix + " INTO " + this.table_name + "(" + fleid + ") VALUES (" + sql_mɑrk.substring(0, (RowValue[0].length * 2) - 1) + ")";
+		String sql = this.insert_prefix + " INTO " + this.table_name + "(" + fleid + ") VALUES ("
+				+ sql_mɑrk.substring(0, (RowValue[0].length * 2) - 1) + ")";
 		PreparedStatement PStatement = db_dsn_conn.prepareStatement(sql);
 		int rowV1 = RowValue.length;
 		int rowV2;
