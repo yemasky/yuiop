@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.utils.FileUtil;
-import com.utils.Xml2JsonUtil;
+import com.utils.JsonUtil;
 import com.webservice.client.SoapHttpClient;
 
 public class TouricoApi {
@@ -128,10 +128,11 @@ public class TouricoApi {
 							cg.getHotelDetailsV3Header);
 					fileUtil.createFile(hotelPath, hotelid + ".xml", xmlGetHotelDetailsV3);
 				} else {
-					//xmlGetHotelDetailsV3 = fileUtil.readTxt(hotelPath + "/" + hotelid + ".xml", "utf-8");
+					xmlGetHotelDetailsV3 = fileUtil.readTxt(hotelPath + "/" + hotelid + ".xml", "utf-8");
 				}
-				//System.out.println("json=" +  Xml2JsonUtil.xml2JSON(xmlGetHotelDetailsV3));
-				//System.exit(0);
+				//System.out.println("json=" +  JsonUtil.xml2JSON(xmlGetHotelDetailsV3));
+				System.out.println("json=" +  JsonUtil.jsonParse(JsonUtil.xml2JSON(xmlGetHotelDetailsV3), "s:Body").get("GetHotelDetailsV3Response"));
+				System.exit(0);
 				// logger.info(matchValue.substring(9, matchValue.length() -1));
 			}
 			// MatchResult ss = matcher.toMatchResult();
