@@ -50,16 +50,15 @@ public class FileUtil {
 	 * 
 	 * @param folderPath
 	 *            目录
+	 * @return 
 	 * @return 返回目录创建后的路径
 	 */
-	public String createFolder(String folderPath) {
-		String txt = folderPath;
-		java.io.File myFilePath = new File(txt);
-		txt = folderPath;
+	public boolean createFolder(String folderPath) {
+		File myFilePath = new File(folderPath);
 		if (!myFilePath.exists()) {
-			myFilePath.mkdir();
+			return myFilePath.mkdir();
 		}
-		return txt;
+		return true;
 	}
 
 	/**
@@ -80,9 +79,9 @@ public class FileUtil {
 		for (; st.hasMoreTokens();) {
 			txt = st.nextToken().trim();
 			if (txts.lastIndexOf("/") != -1) {
-				txts = createFolder(txts + txt);
+				createFolder(txts + txt);
 			} else {
-				txts = createFolder(txts + txt + "/");
+				createFolder(txts + txt + "/");
 			}
 		}
 		return txts;
@@ -158,15 +157,15 @@ public class FileUtil {
 	 * 
 	 * @param folderPath
 	 *            文件夹完整绝对路径
+	 * @return 
 	 * @return
 	 */
-	public void delFolder(String folderPath) {
+	public boolean delFolder(String folderPath) {
 		delAllFile(folderPath); // 删除完里面所有内容
 		String filePath = folderPath;
 		filePath = filePath.toString();
-		java.io.File myFilePath = new java.io.File(filePath);
-		myFilePath.delete(); // 删除空文件夹
-
+		File myFilePath = new File(filePath);
+		return myFilePath.delete(); // 删除空文件夹
 	}
 
 	/**

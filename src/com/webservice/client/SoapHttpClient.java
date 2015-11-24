@@ -13,8 +13,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SoapHttpClient {
+	private static Logger logger = LogManager.getLogger(SoapHttpClient.class.getName());
 	public static void main(String[] args) throws Exception {
 		SoapHttpClient hc = new SoapHttpClient();
 		String soapRequestData = getRequestXml();
@@ -31,7 +34,7 @@ public class SoapHttpClient {
 		HttpPost post = new HttpPost(soapURL);
 		
 		if(soapRequestData != null) {
-			//logger.info(soapRequestData);
+			logger.info(soapRequestData);
 			byte[] b_data = soapRequestData.getBytes("UTF-8");
 			InputStream ISdata = new ByteArrayInputStream(b_data, 0, b_data.length);
 			InputStreamEntity ISEdata = new InputStreamEntity(ISdata);	
