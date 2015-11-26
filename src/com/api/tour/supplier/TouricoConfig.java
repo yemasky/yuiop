@@ -1,5 +1,7 @@
 package com.api.tour.supplier;
 
+import java.util.HashMap;
+
 public class TouricoConfig {
 	public String culture = "en_US";
 	public String version = "9";
@@ -10,12 +12,16 @@ public class TouricoConfig {
 	public String getDestinationURL = "http://destservices.touricoholidays.com/DestinationsService.svc?wsdl";
 	public String getHotelsByDestinationURL = "http://destservices.touricoholidays.com/DestinationsService.svc";
 	public String getHotelDetailsV3URL = "http://demo-hotelws.touricoholidays.com/HotelFlow.svc/bas";
+	public String getBookHotelV3URL = "https://demo-hotelwssecure.touricoholidays.com/HotelFlow.svc/bas";
+	
 	public String[][] getDestinationHeader = new String[][] { { "SOAPAction",
 			"http://touricoholidays.com/WSDestinations/2008/08/Contracts/IDestinationContracts/GetDestination" } };
 	public String[][] getHotelsByDestinationHeader = new String[][] { { "SOAPAction",
 			"http://touricoholidays.com/WSDestinations/2008/08/Contracts/IDestinationContracts/GetHotelsByDestination" } };
 	public String[][] getHotelDetailsV3Header = new String[][] { { "SOAPAction",
 			"http://tourico.com/webservices/hotelv3/IHotelFlow/GetHotelDetailsV3" } };
+	public String[][] getBookHotelV3Header = new String[][] { { "SOAPAction",
+			"http://tourico.com/webservices/hotelv3/IHotelFlow/BookHotelV3" } };		
 	
 	public String filePath() {
 		return (this.getClass().getResource("/") + "resources/supplier/tourico/").substring(6) ;
@@ -70,6 +76,15 @@ public class TouricoConfig {
 		String xml_GetHotelDetailsV3 = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:aut=\"http://schemas.tourico.com/webservices/authentication\" xmlns:hot=\"http://tourico.com/webservices/hotelv3\">"
 				+ xml_header + "<soapenv:Body>" + "<hot:GetHotelDetailsV3><hot:HotelIds><hot:HotelID id=\"" + HotelID
 				+ "\"/></hot:HotelIds></hot:GetHotelDetailsV3>" + "</soapenv:Body>" + "</soapenv:Envelope>";
+		return xml_GetHotelDetailsV3;
+	}
+	
+	public String xmlBookHotelV3(String BookingInfo) {
+		String xml_header = this.xmlGetHotelDetailsV3Header();
+		String xml_GetHotelDetailsV3 = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" "
+				+ "xmlns:aut=\"http://schemas.tourico.com/webservices/authentication\" xmlns:hot=\"http://tourico.com/webservices/hotelv3\""
+				+" xmlns:hot1=\"http://schemas.tourico.com/webservices/hotelv3\">"
+				+ xml_header + "<soapenv:Body>" + "<hot:BookHotelV3>"+BookingInfo+"</hot:BookHotelV3>" + "</soapenv:Body>" + "</soapenv:Envelope>";
 		return xml_GetHotelDetailsV3;
 	}
 
