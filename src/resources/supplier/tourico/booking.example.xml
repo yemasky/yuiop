@@ -1,0 +1,177 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://schemas.tourico.com/webservices/authentication" xmlns:hot="http://tourico.com/webservices/hotelv3" xmlns:hot1="http://schemas.tourico.com/webservices/hotelv3">
+   <soapenv:Header>
+      <aut:AuthenticationHeader>
+         <aut:LoginName>tester</aut:LoginName>
+         <aut:Password>111111</aut:Password>
+         <!--Optional:-->
+         <aut:Culture>en_US</aut:Culture>
+         <!--Optional:-->
+         <aut:Version>9</aut:Version>
+      </aut:AuthenticationHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <hot:BookHotelV3>
+         <!--Optional:-->
+         <hot:request>
+            <hot1:RecordLocatorId>0</hot1:RecordLocatorId>
+            <hot1:HotelId>1216326</hot1:HotelId>
+            <hot1:HotelRoomTypeId>11859597</hot1:HotelRoomTypeId>
+            <hot1:CheckIn>2015-12-26</hot1:CheckIn>
+            <hot1:CheckOut>2015-12-30</hot1:CheckOut>
+            <!--Optional:-->
+            <hot1:RoomsInfo>
+               <!--Zero or more repetitions:-->
+               <hot1:RoomReserveInfo>
+                  <hot1:RoomId>1</hot1:RoomId>
+                  <!--Optional:-->
+                  <hot1:ContactPassenger>
+                     <!--Optional:-->
+                     <hot1:FirstName>Yanlin</hot1:FirstName>
+                     <!--Optional:-->
+                     <hot1:MiddleName></hot1:MiddleName>
+                     <!--Optional:-->
+                     <hot1:LastName>Pei</hot1:LastName>
+                     <!--Optional:-->
+                     <hot1:HomePhone>123456</hot1:HomePhone>
+                     <!--Optional:-->
+                     <hot1:MobilePhone>654321</hot1:MobilePhone>
+                  </hot1:ContactPassenger>
+                  <!--Optional:-->
+                  <hot1:SelectedBoardBase>
+                     <hot1:Id>4</hot1:Id>
+                     <hot1:Price>137.74</hot1:Price>
+                  </hot1:SelectedBoardBase>
+                  <!--Optional:-->
+                  <hot1:SelectedSupplements>
+                     <!--Zero or more repetitions:-->
+                     <hot1:SupplementInfo suppId="5" supTotalPrice="60" suppType="2">
+                        <!--Optional:-->
+                        <hot1:SupAgeGroup>
+                           <!--Zero or more repetitions:-->
+                           <hot1:SuppAges suppFrom="1" suppTo="99" suppQuantity="1" suppPrice="60"/>
+                        </hot1:SupAgeGroup>
+                     </hot1:SupplementInfo>
+                  </hot1:SelectedSupplements>
+                  <!--Optional:-->
+                  <hot1:Bedding>3,2</hot1:Bedding>
+                  <!--Optional:-->
+                  <hot1:Note>1</hot1:Note>
+                  <hot1:AdultNum>2</hot1:AdultNum>
+                  <hot1:ChildNum>1</hot1:ChildNum>
+                  <!--Optional:-->
+                  <hot1:ChildAges>
+                     <!--Zero or more repetitions:-->
+                     <hot1:ChildAge age="4"/>
+                  </hot1:ChildAges>
+               </hot1:RoomReserveInfo>
+               <hot1:RoomReserveInfo>
+                  <hot1:RoomId>2</hot1:RoomId>
+                  <!--Optional:-->
+                  <hot1:ContactPassenger>
+                     <!--Optional:-->
+                     <hot1:FirstName>Yanlin</hot1:FirstName>
+                     <!--Optional:-->
+                     <hot1:MiddleName></hot1:MiddleName>
+                     <!--Optional:-->
+                     <hot1:LastName>Pei</hot1:LastName>
+                     <!--Optional:-->
+                     <hot1:HomePhone>123456</hot1:HomePhone>
+                     <!--Optional:-->
+                     <hot1:MobilePhone>654321</hot1:MobilePhone>
+                  </hot1:ContactPassenger>
+                  <!--Optional:-->
+                  <hot1:SelectedBoardBase>
+                     <hot1:Id>4</hot1:Id>
+                     <hot1:Price>91.83</hot1:Price>
+                  </hot1:SelectedBoardBase>
+                  <!--Optional:-->
+                  <hot1:SelectedSupplements>
+                     <!--Zero or more repetitions:-->
+                     <hot1:SupplementInfo suppId="5" supTotalPrice="60" suppType="2">
+                        <!--Optional:-->
+                        <hot1:SupAgeGroup>
+                           <!--Zero or more repetitions:-->
+                           <hot1:SuppAges suppFrom="1" suppTo="99" suppQuantity="1" suppPrice="60"/>
+                        </hot1:SupAgeGroup>
+                     </hot1:SupplementInfo>
+                  </hot1:SelectedSupplements>
+                  <!--Optional:-->
+                  <hot1:Bedding>3,2</hot1:Bedding>
+                  <!--Optional:-->
+                  <hot1:Note>1</hot1:Note>
+                  <hot1:AdultNum>1</hot1:AdultNum>
+                  <hot1:ChildNum>1</hot1:ChildNum>
+                  <!--Optional:-->
+                  <hot1:ChildAges>
+                     <!--Zero or more repetitions:-->
+                     <hot1:ChildAge age="6"/>
+                  </hot1:ChildAges>
+               </hot1:RoomReserveInfo>
+
+               <hot1:RoomReserveInfo>
+                  <hot1:RoomId>3</hot1:RoomId>
+                  <!--Optional:-->
+                  <hot1:ContactPassenger>
+                     <!--Optional:-->
+                     <hot1:FirstName>Yanlin</hot1:FirstName>
+                     <!--Optional:-->
+                     <hot1:MiddleName></hot1:MiddleName>
+                     <!--Optional:-->
+                     <hot1:LastName>Pei</hot1:LastName>
+                     <!--Optional:-->
+                     <hot1:HomePhone>123456</hot1:HomePhone>
+                     <!--Optional:-->
+                     <hot1:MobilePhone>654321</hot1:MobilePhone>
+                  </hot1:ContactPassenger>
+                  <!--Optional:-->
+                  <hot1:SelectedBoardBase>
+                     <hot1:Id>4</hot1:Id>
+                     <hot1:Price>137.74</hot1:Price>
+                  </hot1:SelectedBoardBase>
+                  <!--Optional:-->
+                  <hot1:SelectedSupplements>
+                     <!--Zero or more repetitions:-->
+                     <hot1:SupplementInfo suppId="5" supTotalPrice="60" suppType="2">
+                        <!--Optional:-->
+                        <hot1:SupAgeGroup>
+                           <!--Zero or more repetitions:-->
+                           <hot1:SuppAges suppFrom="1" suppTo="99" suppQuantity="1" suppPrice="60"/>
+                        </hot1:SupAgeGroup>
+                     </hot1:SupplementInfo>
+                  </hot1:SelectedSupplements>
+                  <!--Optional:-->
+                  <hot1:Bedding>3,2</hot1:Bedding>
+                  <!--Optional:-->
+                  <hot1:Note>1</hot1:Note>
+                  <hot1:AdultNum>3</hot1:AdultNum>
+                  <hot1:ChildNum>0</hot1:ChildNum>
+                  <!--Optional:-->
+                  <hot1:ChildAges>
+                     <!--Zero or more repetitions:-->
+                     <hot1:ChildAge age="0"/>
+                  </hot1:ChildAges>
+               </hot1:RoomReserveInfo>
+
+            </hot1:RoomsInfo>
+            <hot1:PaymentType>Obligo</hot1:PaymentType>
+            <!--Optional:-->
+           
+            <!--Optional:-->
+            <hot1:AgentRefNumber></hot1:AgentRefNumber>
+            <!--Optional:-->
+            <hot1:ContactInfo>1</hot1:ContactInfo>
+            <hot1:RequestedPrice>2879.71</hot1:RequestedPrice>
+            <hot1:DeltaPrice>10</hot1:DeltaPrice>
+            <!--Optional:-->
+            <hot1:Currency>USD</hot1:Currency>
+            <hot1:IsOnlyAvailable>true</hot1:IsOnlyAvailable>
+            <!--Optional:-->
+            <hot1:ConfirmationEmail></hot1:ConfirmationEmail>
+            <!--Optional:-->
+            <hot1:ConfirmationLogo></hot1:ConfirmationLogo>
+         </hot:request>
+         <!--Optional:-->
+         
+      </hot:BookHotelV3>
+   </soapenv:Body>
+</soapenv:Envelope>

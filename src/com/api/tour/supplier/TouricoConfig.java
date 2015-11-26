@@ -12,7 +12,7 @@ public class TouricoConfig {
 	public String getDestinationURL = "http://destservices.touricoholidays.com/DestinationsService.svc?wsdl";
 	public String getHotelsByDestinationURL = "http://destservices.touricoholidays.com/DestinationsService.svc";
 	public String getHotelDetailsV3URL = "http://demo-hotelws.touricoholidays.com/HotelFlow.svc/bas";
-	public String getBookHotelV3URL = "https://demo-hotelwssecure.touricoholidays.com/HotelFlow.svc/bas";
+	public String getBookHotelV3URL = "http://demo-hotelsws.touricoholidays.com/HotelFlow.svc/bas";
 	
 	public String[][] getDestinationHeader = new String[][] { { "SOAPAction",
 			"http://touricoholidays.com/WSDestinations/2008/08/Contracts/IDestinationContracts/GetDestination" } };
