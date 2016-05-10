@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class indexController  {
+public class indexController {
 	
 
-	@RequestMapping("*")
+	@RequestMapping("")
 	public String index(HttpServletRequest request) {
 		;
-		System.out.println(request.getParameterNames().toString());
+		System.out.println("-----------------" + request.getParameter("ss"));
 		// 视图渲染，/WEB-INF/jsps/home.jsp
 		return "index";
 	}
